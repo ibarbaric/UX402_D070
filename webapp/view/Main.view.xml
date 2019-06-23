@@ -1,0 +1,67 @@
+<mvc:View controllerName="com.sap.training.ux402.messages.UX402_E06_WorkingWithMessages.controller.Main" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true" xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<FacetFilter id="idFacetFilter" type="Light" showPersonalization="true" showReset="true" reset="handleFacetFilterReset"
+							lists="{oModFacetFilter>/Filters}">
+							<lists>
+								<FacetFilterList title="{oModFacetFilter>title}" key="{oModFacetFilter>key}" mode="MultiSelect" listClose="handleListClose"
+									items="{path: 'oModFacetFilter>values', templateShareable: 'true'}">
+									<items>
+										<FacetFilterItem text="{oModFacetFilter>text}" key="{oModFacetFilter>key}" count="{oModFacetFilter>count}"/>
+									</items>
+								</FacetFilterList>
+							</lists>
+						</FacetFilter>
+						
+						<Table id="idFlights" items="{ path: '/FlightCollection', sorter: { path: 'carrid' }}" mode="SingleSelectMaster" growing="true"
+							growingThreshold="10">
+							<headerToolbar>
+								<Toolbar>
+									<Title text="Flights" level="H2"/>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column>
+									<Text text="{i18n>carriername}"/>
+								</Column>
+								<Column>
+									<Text text="{i18n>flightno}"/>
+								</Column>
+								<Column>
+									<Text text="{i18n>flightdate}"/>
+								</Column>
+								<Column>
+									<Text text="{i18n>seatmax}"/>
+								</Column>
+								<Column>
+									<header>
+										<Toolbar>
+											<Button id="btnSortSeatsOcc" icon="sap-icon://sort" press="onSortSeatsOcc"/>
+											<Text text="{i18n>seatoc}"/>
+										</Toolbar>
+									</header>
+									
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<ObjectIdentifier title="{carrid}" text="{carrid}"/>
+										<Text text="{connid}"/>
+										<Text text="{ path: 'fldate', type: 'sap.ui.model.type.Date' }"/>
+										<Text text="{SEATSMAX}"/>
+										<Text text="{SEATSOCC}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>	
+</mvc:View>
