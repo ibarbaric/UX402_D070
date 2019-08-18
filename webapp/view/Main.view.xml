@@ -1,0 +1,37 @@
+<mvc:View controllerName="com.sap.training.ux402.messages.UX402_E06_WorkingWithMessages.controller.Main" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true" xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+	<Shell id="shell">
+		<App id="idAppControl">
+			<pages>
+				<Page id="page" title="Carriers">
+					<content>
+						<Table id="idFlights" items="{ path: '/CarrierCollection'}" mode="SingleSelectMaster" growing="true" growingThreshold="10"
+							itemPress="onItemPress">
+							<headerToolbar>
+								<Toolbar>
+									<Title text="Flights" level="H2"/>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column>
+									<Text text="{i18n>carrid}"/>
+								</Column>
+								<Column>
+									<Text text="{i18n>carrname}"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem type="Navigation">
+									<cells>
+										<Text text="{carrid}"/>
+										<Text text="{ path: 'CARRNAME' }"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

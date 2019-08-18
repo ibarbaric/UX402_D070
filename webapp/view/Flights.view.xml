@@ -1,0 +1,49 @@
+<mvc:View controllerName="com.sap.training.ux402.messages.UX402_E06_WorkingWithMessages.controller.Flights" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true" xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}" navButtonPress="onNavBack" showNavButton="true">
+					<content>
+						<Table id="idFlights" items="{ path: 'carrierFlights'}" mode="SingleSelectMaster" growing="true" growingThreshold="10">
+							<headerToolbar>
+								<Toolbar>
+									<Title text="Flights" level="H2"/>
+								</Toolbar>
+							</headerToolbar>
+							<columns>
+								<Column>
+									<Text text="carrid"/>
+								</Column>
+								<Column>
+									<Text text="connid"/>
+								</Column>
+								<Column>
+									<Text text="fldate"/>
+								</Column>
+								<Column>
+									<Text text="cityFrom"/>
+								</Column>
+								<Column>
+									<Text text="cityTo"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{carrid}"/>
+										<Text text="{ path: 'connid' }"/>
+										<Text text="{ path: 'connid' }"/>
+										<Text text="{ path: 'fldate' }"/>
+										<Text text="{ path: 'cityFrom' }"/>
+										<Text text="{ path: 'cityTo' }"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
